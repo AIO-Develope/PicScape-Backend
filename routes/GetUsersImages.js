@@ -9,7 +9,8 @@ router.get('/api/account/images/:uuid', (req, res) => {
 
   const imagesForUUID = database.images.filter(image => image.uuid === uuid);
 
-  res.json(imagesForUUID);
+  const response = imagesForUUID.map(image => ({ randomImage: image }));
+  res.json(response);
 });
 
 module.exports = router;
